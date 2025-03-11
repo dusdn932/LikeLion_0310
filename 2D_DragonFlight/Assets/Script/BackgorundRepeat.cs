@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class BackgorundRepeat : MonoBehaviour
 {
-    //½ºÅ©·Ñ ÇÒ ¼Óµµ¸¦ »ó¼ö·Î ÁöÁ¤
+    //ìŠ¤í¬ë¡¤ í•  ì†ë„ë¥¼ ìƒìˆ˜ë¡œ ì§€ì •
     public float scrollSpeed = 0.6f;
-    //ÄõµåÀÇ ¸ÓÅÍ¸®¾ó µ¥ÀÌÅÍ¸¦ ¹Ş¾Æ¿Ã °´Ã¼¸¦ ¼±¾ğ
+    //ì¿¼ë“œì˜ ë¨¸í„°ë¦¬ì–¼ ë°ì´í„°ë¥¼ ë°›ì•„ì˜¬ ê°ì²´ë¥¼ ì„ ì–¸
     private Material thisMaterial;
     void Start()
     {
-        //ÇöÀç °´Ã¼ÀÇ ComonentµéÀ» ÂüÁ¶ÇØ Renderer¶ó´Â ÄÄÆ÷³ÍÆ®ÀÇ materialÁ¤º¸
-        //¹Ş¾Æ¿È
+        //í˜„ì¬ ê°ì²´ì˜ Comonentë“¤ì„ ì°¸ì¡°í•´ Rendererë¼ëŠ” ì»´í¬ë„ŒíŠ¸ì˜ materialì •ë³´
+        //ë°›ì•„ì˜´
         thisMaterial = GetComponent<Renderer>().material;
     }
 
     void Update()
     {
-        //»õ·Ó°Ô ÁöÁ¤ÇØÁÙ Offset °´Ã¼¸¦ ¼±¾ğ
+        //ìƒˆë¡­ê²Œ ì§€ì •í•´ì¤„ Offset ê°ì²´ë¥¼ ì„ ì–¸
         Vector2 newoffset = thisMaterial.mainTextureOffset;
-        //Y¤ÌºĞ¿¡ ÇöÀç y°ª¿¡ ¼Óµµ¿¡ ÇÁ·¹ÀÓ º¸Á¤¤·ÇØ¼­ ´õÇØÁÜ
+        //Yë¶„ì— í˜„ì¬ yê°’ì— ì†ë„ì— í”„ë ˆì„ ë³´ì •ã…‡í•´ì„œ ë”í•´ì¤Œ
         newoffset.Set(0, newoffset.y + (scrollSpeed * Time.deltaTime));
-        //ÃÖÁ¾ÀûÀ¸·Î offset°ªÀ» ÁöÁ¤ÇØÁİ´Ï´Ù.
+        //ìµœì¢…ì ìœ¼ë¡œ offsetê°’ì„ ì§€ì •í•´ì¤ë‹ˆë‹¤.
         thisMaterial.mainTextureOffset = newoffset;
     }
 }
